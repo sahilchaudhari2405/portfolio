@@ -7,7 +7,7 @@
 // })
 var typed2 = new Typed('.typing', {
     strings: ['Web Designer','Web Devloper', 'Competitive Programmer'],
-    typeSpeed: 70,
+    typeSpeed: 70       ,
     backSpeed: 60,
     smartBackspace: true,
     fadeOut: true,
