@@ -27,10 +27,38 @@ list-style: none;
     display:block;
     padding: 0 30px;
     opacity: 1;
-
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all o.3s ease;
+}
+.section.back-section
+{
+    z-index: 1;
+}
+section.active{
+z-index: 2;
+opacity: 1;
+animation: slideSection 1s ease;
 }
 .hidden{
     display: none !important;
+}
+@keyframes slideSection {
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
 }
 .main-content {
     padding-left: 270px;
@@ -128,6 +156,8 @@ z-index: 10;
 display:flex;
 justify-content: center;
 align-items: center;             
+transition: all 0.3s ease;
+transition: all o.3s ease;
 }
 .aside .logo {
     position: absolute;
@@ -187,6 +217,8 @@ align-items: center;
     display:none;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
+    transition: all o.3s ease;
 }
 .aside .nav-toggler span{
     height: 2px;
@@ -194,6 +226,14 @@ align-items: center;
     background-color: var(--skin-color);
     position: relative;
 }
+.aside .nav-toggler.open span{
+    background-color: transparent;
+}
+.aside .nav-toggler.open span::before{
+    transform: rotate(45deg);
+    top:0;
+}
+
 .aside .nav-toggler span::before{
     content: '';
     height: 2px;
@@ -203,7 +243,7 @@ align-items: center;
     top: -6px;
     left:0;
 }
-.aside .nav-toggler span::before{
+/* .aside .nav-toggler span::before{
     content: '';
     height: 2px;
     width: 18px;
@@ -211,6 +251,10 @@ align-items: center;
     position:absolute;
     top: -6px;
     left:0;
+} */
+.aside .nav-toggler.open span::after{
+    transform: rotate(-45deg);
+    top:0;
 }
 .aside .nav-toggler span::after{
     content: '';
@@ -349,8 +393,8 @@ h3.my-profession{
 .about .about-content .personal-info .buttons{
     margin-top: 35px;
 }
-.about .about-content .personal-info .buttons .btn{
-    margin-right: 15px;
+.about .about-content .personal-info .buttons .btn
+{
     margin-top: 10px;
 }
 .about .about-content .skills{
@@ -647,12 +691,30 @@ color: var(--text-black-700);
     height: 50px; 
  }
 @media (max-width:1199px) {
+    .section.container
+    {
+        padding-top: 70px;
+    }
     .aside{
         left:-270px;
     }
-    .main-content{
-        padding-left: 0;
+    .aside.open{
+        left: 0;
     }
+      .aside .nav-toggler
+      {display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open{
+        left: 300px;
+    }
+      .section
+      {
+        left: 0;
+      }
+      .section.open{
+        left: 270px;
+      }
     .about .about-content .personal-info .info-item p span {
       display: block;
       margin-left: 0;
